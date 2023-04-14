@@ -22,7 +22,7 @@ async def get_eth():
             data = json.loads(await client.recv())['data']
             price = data['k']['c']
             print("Новая цена: ", float(price), "|", "Старая цена: ", first, "|",
-                  f"Изменение цены за {start} -> ", str(round((abs(first - float(price)) * 100) / first, 3))+'%')
+                  f"Изменение цены за {start} -> ", str(round((abs(first - float(price)) * 100) / first, 5)*100)+'%')
             print((start + datetime.timedelta(minutes=5)).time(), "|", datetime.datetime.now().time())
             print("_"*90)
             if (start + datetime.timedelta(minutes=5)).time() > datetime.datetime.now().time() and (
